@@ -255,7 +255,7 @@ export default {
 
     copyLink(item) {
       const el = document.createElement("textarea");
-      el.value = "http://localhost:8080/view/" + item;
+      el.value = "https://vue-teste-gray.vercel.app//view/" + item;
       document.body.appendChild(el);
       el.select();
       document.execCommand("copy");
