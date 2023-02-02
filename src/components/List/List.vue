@@ -149,14 +149,12 @@
 </template>
 
 <script>
-import Image from "../shared/Image.vue";
 import View from "../View/View.vue";
 import api from "../../../service/api";
 import "quill/dist/quill.snow.css";
 
 export default {
   components: {
-    "first-image": Image,
     view: View
   },
 
