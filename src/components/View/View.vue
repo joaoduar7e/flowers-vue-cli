@@ -206,16 +206,6 @@ body {
     padding: 20px;
     line-height: 26px;
   }
-
-  .img-principal {
-    margin-top: -50px;
-    border-radius: 0px 0px 0px 169px;
-  }
-
-  .div-img-principal {
-    max-width: 100%;
-    width: 100%;
-  }
 } */
 
 @media only screen and (max-device-width: 800px) {
