@@ -4,8 +4,8 @@
       <img class="img-principal" :src="flower.first_img" alt="" />
     </div>
 
-    <div class="title">
-      {{ flower.name }}
+    <div class="divTitle">
+      <p class="title">{{ flower.name }}</p>
     </div>
 
     <section class="all-infos">
@@ -120,12 +120,46 @@ body {
     opacity: 1;
   }
 }
+
+.all-infos {
+  display: grid;
+  grid-template-columns: 3fr;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.divTitle {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background: #fff;
+
+}
+
+.type-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.type-info {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: -15px;
+}
+
 .div-img-principal {
   margin: -50px auto 0 auto;
   width: 540px;
   text-align: center;
   justify-content: center;
 }
+
 .img-principal {
   width: 100%;
   height: 100%;
@@ -143,48 +177,9 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background: #ffffff;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  max-width: 540px;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.info-img {
-  display: flex;
-  flex-direction: row;
-  max-width: 540px;
-  justify-content: center;
-  margin: 0 auto;
-  overflow-x: auto;
-  margin-right: 15px;
-}
-
-.type-title {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.type-info {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-.card {
-  display: flex;
-  max-width: 128px;
-  height: 160px;
-  border-radius: 16px;
-}
-
-@media only screen and (max-device-width: 539px) {
+/* @media only screen and (max-device-width: 539px) {
   .all-infos {
     display: grid;
     grid-template-columns: 1fr;
@@ -221,18 +216,48 @@ body {
     max-width: 100%;
     width: 100%;
   }
-}
-.imagem-responsiva {
-  width: 100%;
-  height: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  object-fit: cover;
+} */
 
-  border-radius: 16px;
+@media only screen and (max-device-width: 800px) {
+  .all-infos {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 100%;
+  }
+
+  .type-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #302b2b;
+  }
+
+  .type-info {
+    max-width: 100%;
+  }
+
+  .div-img-principal {
+    margin: -50px auto 0 auto;
+    width: 540px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .img-principal {
+    margin-top: -50px;
+    border-radius: 0 0 0 169px;
 }
 
+  .div-img-principal {
+    max-width: 100%;
+    width: 100%;
+}
+
+}
 
 .media-scroller {
   --_spacer: var(--size-3);
