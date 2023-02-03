@@ -184,7 +184,7 @@ body {
   border-radius: 16px;
 }
 
-@media only screen and (max-device-width: 540px) {
+@media only screen and (max-device-width: 539px) {
   .all-infos {
     display: grid;
     widows: 100%;
@@ -205,15 +205,20 @@ body {
   }
 
   .title {
-    font-size: 40px;
+    font-family: "Quicksand";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
   }
 
   .img-principal {
-    border-radius: 0px 0px 0px 80px;
+    margin-top: -50px;
+    border-radius: 0px 0px 0px 169px;
   }
 
   .div-img-principal {
-    width: 100%;
+    max-width: 100%;
   }
 }
 .imagem-responsiva {
@@ -226,6 +231,7 @@ body {
 
   border-radius: 16px;
 }
+
 
 .media-scroller {
   --_spacer: var(--size-3);
