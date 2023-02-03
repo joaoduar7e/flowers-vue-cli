@@ -122,7 +122,7 @@ body {
 }
 .div-img-principal {
   margin: -50px auto 0 auto;
-  max-width: 540px;
+  width: 540px;
   text-align: center;
   justify-content: center;
 }
@@ -187,9 +187,8 @@ body {
 @media only screen and (max-device-width: 539px) {
   .all-infos {
     display: grid;
-    widows: 100%;
     grid-template-columns: 1fr;
-    padding: 10px;
+    margin: 0 auto auto 20px;
   }
 
   .info {
@@ -197,18 +196,19 @@ body {
     margin-top: 10px;
   }
 
-  .info > label {
-    font-size: 27px;
+  .type-title {
+    font-size: 22px;
   }
   .type-info {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .title {
     font-family: "Quicksand";
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 16px;
+    padding: 20px;
     line-height: 26px;
   }
 
@@ -219,6 +219,7 @@ body {
 
   .div-img-principal {
     max-width: 100%;
+    width: 100%;
   }
 }
 .imagem-responsiva {
