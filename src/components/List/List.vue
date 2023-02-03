@@ -14,7 +14,7 @@
         <b-col cols="4">
           <button
             class="button-59"
-            style="float: right;"
+            style="float: right"
             role="button"
             @click="close"
           >
@@ -26,75 +26,108 @@
 
     <div class="newFlower" v-show="createFlower">
       <div class="forms">
-        <div class="group">
-          <input type="text" id="nome" v-model="flower.name" required />
-          <span class="highlight"></span>
-          <span class="bar"></span>
-          <label>Nome da planta</label>
+        <div class="field field_v1 group">
+          <label for="nome" class="ha-screen-reader">Nome da planta</label>
+          <input
+            id="nome"
+            class="field__input"
+            placeholder="Hortelã"
+            v-model="flower.name"
+          />
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Nome da planta</span>
+          </span>
         </div>
 
-        <div class="group">
-          <input type="text" id="author" v-model="flower.authors" required />
-          <span class="highlight"></span>
-          <span class="bar"></span>
-          <label>Nome científico</label>
+        <div class="field field_v1 group">
+          <label for="author" class="ha-screen-reader">Nome científico</label>
+          <input
+            id="author"
+            class="field__input"
+            placeholder="Mentha spicata"
+            v-model="flower.authors"
+          />
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Nome científico</span>
+          </span>
         </div>
 
         <div class="group">
           <p>Sobre</p>
-          <!-- <b-form-textarea
-            style="width: 300px;"
+
+          <quill-editor
+            id="about"
+            style="width: 400px"
             v-model="flower.description"
-            required
           >
-          </b-form-textarea> -->
-
-          <quill-editor id="about" v-model="flower.description"> </quill-editor>
+          </quill-editor>
         </div>
 
-        <div class="group">
-          <input id="use" type="text" v-model="flower.use" required />
-          <span class="highlight"></span>
-          <span class="bar"></span>
-          <label>Uso da planta</label>
+        <br />
+
+        <div class="field field_v1 group">
+          <label for="use" class="ha-screen-reader">Uso da planta</label>
+          <input
+            id="use"
+            class="field__input"
+            placeholder="Chá"
+            v-model="flower.use"
+          />
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Uso da planta</span>
+          </span>
         </div>
 
-        <p>Imagem para capa</p>
-        <div class="group">
+        <div class="field field_v1 group">
+          <label for="firstimg" class="ha-screen-reader"
+            >Imagem para capa</label
+          >
           <input
             id="firstimg"
-            type="text"
+            class="field__input"
+            placeholder="Url da imagem"
             v-model="flower.first_img"
-            required
           />
-          <span class="highlight"></span>
-          <span class="bar"></span>
-          <label>Url da imagem</label>
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Imagem para capa</span>
+          </span>
         </div>
 
-        <p>Imagens para listagem</p>
+        <div>
+          <p>Imagens para listagem</p>
         <div
           :key="`custom-url-${index}`"
           v-for="(customUrl, index) in flower.images"
           class="group"
         >
-          <div class="pt-3 pl-3" style="min-width: 70px;">
-            <input type="text" v-model="customUrl.url" required />
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Url da imagem</label>
+          <div class="field field_v1 group">
+            <label for="firstimg" class="ha-screen-reader"
+              >Imagem para capa</label
+            >
+            <input
+              id="firstimg"
+              style="width: 100%;"
+              class="field__input"
+              placeholder="Url da imagem"
+              v-model="customUrl.url"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Url da imagem</span>
+            </span>
           </div>
         </div>
         <div>
           <button
             class="button-59"
-            style="width: 100%; margin-bottom: 10px;"
+            style="width: 100%; margin-bottom: 10px"
             @click="addNewImage"
           >
             Adicionar nova imagem
           </button>
         </div>
       </div>
+        </div>
+        
 
       <div class="div-buttons">
         <button class="button-59" @click="close">Cancelar</button>
@@ -155,7 +188,7 @@ import "quill/dist/quill.snow.css";
 
 export default {
   components: {
-    view: View
+    view: View,
   },
 
   data() {
@@ -171,8 +204,8 @@ export default {
         description: "",
         use: "",
         first_img: "",
-        images: []
-      }
+        images: [],
+      },
     };
   },
 
@@ -184,10 +217,10 @@ export default {
     getFlower() {
       api
         .get("/flowers")
-        .then(res => {
+        .then((res) => {
           this.flowers = res.data;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
@@ -216,11 +249,11 @@ export default {
           description: this.flower.description,
           use: this.flower.use,
           first_img: this.flower.first_img,
-          images: this.flower.images
+          images: this.flower.images,
         });
         this.flowers = [...this.flowers, res.data];
         this.createFlower = !this.createFlower;
-        setTimeout(function() {
+        setTimeout(function () {
           window.location.reload(1);
         }, 1000);
       }
@@ -239,21 +272,21 @@ export default {
     addNewImage() {
       this.flower.images.push({
         sequence: this.flower.images.length + 1,
-        url: ""
+        url: "",
       });
     },
 
     removeItem(id) {
       if (confirm("Confirmar deletar?")) {
         api.delete(`/flowers/${id}`);
-        this.flowers = this.flowers.filter(flowers => flowers.id !== id);
+        this.flowers = this.flowers.filter((flowers) => flowers.id !== id);
       }
       return;
     },
 
     copyLink(item) {
       const el = document.createElement("textarea");
-      el.value = "https://vue-teste-gray.vercel.app//view/" + item;
+      el.value = "https://vue-teste-gray.vercel.app/view/" + item;
       document.body.appendChild(el);
       el.select();
       document.execCommand("copy");
@@ -263,15 +296,15 @@ export default {
     edit(flower) {
       this.flower = Object.assign({}, this.flower);
       this.editIndex = this.flowers.indexOf(
-        this.flowers.find(u => u.id === this.flower.id)
+        this.flowers.find((u) => u.id === this.flower.id)
       );
       this.dialog = true;
     },
 
     remove(flower) {
       console.log("oi");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -339,7 +372,7 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 540px) {
+@media (max-device-width: 540px) {
   .div-buttons {
     display: flex;
     flex-direction: column;
@@ -347,10 +380,15 @@ p {
 }
 
 .forms {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
   margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+@media (max-device-width: 540px) {
+  .forms {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>
