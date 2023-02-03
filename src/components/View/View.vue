@@ -48,7 +48,7 @@ export default {
   props: ["id"],
   data() {
     return {
-      flower: []
+      flower: [],
     };
   },
 
@@ -60,14 +60,14 @@ export default {
     getFlower() {
       api
         .get("/flowers/" + this.id)
-        .then(res => {
+        .then((res) => {
           this.flower = res.data;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -121,10 +121,9 @@ body {
   }
 }
 .div-img-principal {
-  margin: -50px auto auto auto;
+  margin: -50px auto 0 auto;
   max-width: 540px;
   text-align: center;
-  display: flex;
   justify-content: center;
 }
 .img-principal {
@@ -185,9 +184,10 @@ body {
   border-radius: 16px;
 }
 
-@media screen and (max-width: 540px) {
+@media only screen and (max-device-width: 540px) {
   .all-infos {
     display: grid;
+    widows: 100%;
     grid-template-columns: 1fr;
     padding: 10px;
   }
@@ -197,8 +197,23 @@ body {
     margin-top: 10px;
   }
 
+  .info > label {
+    font-size: 27px;
+  }
+  .type-info {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
   .img-principal {
     border-radius: 0px 0px 0px 80px;
+  }
+
+  .div-img-principal {
+    width: 100%;
   }
 }
 .imagem-responsiva {
