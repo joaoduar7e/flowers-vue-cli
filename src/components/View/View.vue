@@ -144,35 +144,6 @@ body {
   top: 0;
 }
 
-/* @media only screen and (max-device-width: 539px) {
-  .all-infos {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: 0 auto auto 20px;
-  }
-
-  .info {
-    margin: 0px;
-    margin-top: 10px;
-  }
-
-  .type-title {
-    font-size: 22px;
-  }
-  .type-info {
-    font-size: 16px;
-  }
-
-  .title {
-    font-family: "Quicksand";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 20px;
-    line-height: 26px;
-  }
-} */
-
 @media only screen and (max-device-width: 540px) {
 
   body{
@@ -210,8 +181,8 @@ body {
   }
 
   .img-principal {
-    margin-top: -50px;
-    border-radius: 0 0 0 169px;
+    margin-top: -30px;
+    border-radius: 0 0 0 89px;
     max-width: 100%;
     max-height: 540px;
 

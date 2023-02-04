@@ -98,28 +98,28 @@
         <div
           :key="`custom-url-${index}`"
           v-for="(customUrl, index) in flower.images"
-          class="group"
         >
-          <div class="field field_v1 group">
+          <div class="field field_v1">
             <label for="firstimg" class="ha-screen-reader"
               >Imagem para capa</label
             >
+
+
             <input
-              id="firstimg"
-              style="width: 100%;"
-              class="field__input"
-              placeholder="Url da imagem"
-              v-model="customUrl.url"
-            />
+            id="firstimg"
+            class="field__input"
+            placeholder="Url da imagem"
+            v-model="flower.first_img"
+          />
             <span class="field__label-wrap" aria-hidden="true">
-              <span class="field__label">Url da imagem</span>
+              <span class="field__label">Url da img para listagem</span>
             </span>
           </div>
         </div>
         <div>
           <button
             class="button-59"
-            style="width: 100%; margin-bottom: 10px"
+            style="width: 100%; margin-bottom: 10px; margin-top: 10px;"
             @click="addNewImage"
           >
             Adicionar nova imagem
