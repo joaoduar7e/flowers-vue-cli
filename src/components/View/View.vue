@@ -114,7 +114,8 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  margin-top: -15px;
+  margin-top: -10px;
+  max-width: 100%;
 }
 
 .div-img-principal {
@@ -173,6 +174,10 @@ body {
 } */
 
 @media only screen and (max-device-width: 800px) {
+
+  body{
+    max-width: 540px;
+  }
   .all-infos {
     display: grid;
     grid-template-columns: 1fr;
@@ -196,7 +201,10 @@ body {
 
   .div-img-principal {
     margin: -50px auto 0 auto;
-    width: 540px;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     text-align: center;
     justify-content: center;
   }
@@ -204,12 +212,11 @@ body {
   .img-principal {
     margin-top: -50px;
     border-radius: 0 0 0 169px;
+    max-width: 100%;
+    max-height: 540px;
+
 }
 
-  .div-img-principal {
-    max-width: 100%;
-    width: 100%;
-}
 
 }
 
