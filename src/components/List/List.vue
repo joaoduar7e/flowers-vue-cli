@@ -1,13 +1,10 @@
 <template>
   <div class="body">
-    <div class="title">
-      <h2>Lista de Plantas</h2>
-    </div>
 
-    <br />
-    <br />
-    <br />
+    <div class="header">
 
+        <b class="title">Plantas</b>
+      
     <b-container v-show="!createFlower" class="bv-example-row">
       <b-row>
         <b-col cols="8"></b-col>
@@ -23,6 +20,19 @@
         >
       </b-row>
     </b-container>
+
+    <b-container v-show="createFlower" class="bv-example-row">
+      <b-row>
+        <b-col cols="4"></b-col>
+        <b-col cols="4">
+          <button class="button-59" @click="close">Cancelar</button></b-col
+        >
+      </b-row>
+    </b-container>
+
+
+    </div>
+
 
     <div class="newFlower" v-show="createFlower">
       <div class="forms">
@@ -100,17 +110,15 @@
           v-for="(customUrl, index) in flower.images"
         >
           <div class="field field_v1">
-            <label for="firstimg" class="ha-screen-reader"
-              >Imagem para capa</label
-            >
-
 
             <input
             id="firstimg"
+            style="width: 100%;"
             class="field__input"
             placeholder="Url da imagem"
-            v-model="flower.first_img"
+            v-model="customUrl.url"
           />
+          
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Url da img para listagem</span>
             </span>
@@ -130,7 +138,6 @@
         
 
       <div class="div-buttons">
-        <button class="button-59" @click="close">Cancelar</button>
         <button class="button-59" @click="addItem()" :disabled="submit">
           Salvar
         </button>
@@ -316,6 +323,15 @@ html {
   scroll-behavior: smooth;
 }
 
+.header {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  max-width: 1140px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .line {
   border-top: 1px solid #c8c8c8;
 }
@@ -337,10 +353,8 @@ p {
   font-family: "Quicksand";
 }
 .title {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
+  font-size: 50px;
+  line-height: 61px
 }
 .Table-header {
   display: flex;
@@ -372,7 +386,9 @@ p {
   margin: 0 auto;
 }
 
+
 @media (max-device-width: 540px) {
+
   .div-buttons {
     display: flex;
     flex-direction: column;

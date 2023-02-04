@@ -81,6 +81,7 @@ body {
   font-family: "Quicksand";
 }
 
+
 .media-element > img {
   border-radius: 16px;
 }
