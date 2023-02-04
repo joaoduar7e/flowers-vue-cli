@@ -121,12 +121,13 @@ body {
 
 .div-img-principal {
   margin: -50px auto 0 auto;
-  width: 540px;
+  max-width: 800px;
   text-align: center;
   justify-content: center;
 }
 
 .img-principal {
+  max-width: 800px;
   width: 100%;
   height: 100%;
   display: block;
