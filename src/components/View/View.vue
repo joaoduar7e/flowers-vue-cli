@@ -173,7 +173,7 @@ body {
   }
 } */
 
-@media only screen and (max-device-width: 800px) {
+@media only screen and (max-device-width: 540px) {
 
   body{
     max-width: 540px;
