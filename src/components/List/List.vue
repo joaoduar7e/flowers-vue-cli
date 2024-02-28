@@ -15,7 +15,7 @@
             role="button"
             @click="close"
           >
-            Novo1
+            Novo
           </button></b-col
         >
       </b-row>
