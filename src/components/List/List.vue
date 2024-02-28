@@ -34,7 +34,7 @@
     </div>
 
 
-    <div class="newFlower" v-show="createFlower">
+    <div class="newFlower" v-show="!createFlower">
       <div class="forms">
         <div class="field field_v1 group">
           <label for="nome" class="ha-screen-reader">Nome da planta</label>
